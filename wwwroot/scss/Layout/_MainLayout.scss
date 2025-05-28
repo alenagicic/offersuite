@@ -1,0 +1,73 @@
+// Root styles
+body {
+    //font-family: 'Public Sans', sans-serif;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 1rem;
+    margin: 0px;
+    padding: 0px;
+
+    /* --- Crucial for Number Alignment and Consistency --- */
+    font-feature-settings: "tnum", "lnum"; /* Enable Tabular Lining Figures */
+    -webkit-font-feature-settings: "tnum", "lnum"; /* For Webkit browsers */
+    font-variant-numeric: tabular-nums; /* A more modern, shorthand property for tabular nums */
+}
+
+
+.container{
+    margin: 0px;
+    padding: 0px;
+}
+
+main{
+    margin: 0px;
+    padding: 0px;
+}
+
+.header-main{
+    height: 2rem;
+    background-color: #4682B4;
+    width: 100%;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    z-index: 1000;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(245, 245, 245, 0.123);
+
+
+    p{
+        padding-left: 0.5rem;
+    }
+}
+
+/* Global scrollbar styling for Firefox */
+* {
+    scrollbar-width: thin;
+    -ms-overflow-style: auto; /* For IE 10+ */
+  }
+  
+  /* WebKit-based browsers (Chrome, Safari, Edge) */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    border: none; /* Transparent border is unnecessary */
+  }
+  
+  *::-webkit-scrollbar-button {
+    display: none; /* Removes top and bottom triangles */
+  }
+
+  *::-webkit-scrollbar-button:single-button {
+    display: none;
+    height: 0;
+    width: 0;
+  }

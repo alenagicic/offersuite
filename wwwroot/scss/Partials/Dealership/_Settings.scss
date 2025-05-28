@@ -1,0 +1,293 @@
+$background-color: whitesmoke;
+$accent-color: steelblue;
+$text-color: #333;
+$highlight-color: #4a90e2;
+$border-color: #ddd;
+
+.account-settings {
+  border-radius: 0.2rem;
+  padding-bottom: 2rem;
+  overflow: auto;
+  overflow-x: hidden;
+  animation: fadeSlideIn 0.6s forwards;
+
+
+  h3 {
+    font-size: 1.2rem!important;
+    margin: 0px;
+    padding: 0px;
+    color: $accent-color;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: #4682B4;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 4rem;
+
+    i{
+      margin-right: 1rem;
+      display: none;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 2%;
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+      width: 49%;
+      margin-bottom: 1rem;
+
+
+      label {
+        margin-bottom: 5px;
+        font-size: 0.8rem;
+        text-transform: capitalize;
+        color: #4682B4;
+      }
+
+      input,
+      textarea {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 0.2rem;
+        font-size: 1rem!important;
+        background-color: white;
+        color: $text-color!important;
+        resize: vertical;
+        font-family: inherit;
+        height: 1.5rem;
+        border-radius: 2px;
+
+        &:focus {
+          outline: 1px solid #4682B4;
+          border: 1px solid #4682B4;
+          color: #333;
+        }
+
+        &[readonly] {
+          background-color: #f0f0f0;
+          color: #888;
+          cursor: not-allowed;
+        }
+        &[disabled] {
+          background-color: #e5e9f0; // cool light gray
+          color: #999;              // muted text color
+          border-color: #ccc;       // soften border
+          cursor: not-allowed;
+        }
+
+      }
+
+      &:focus-within label {
+        color: #4682B4; // SteelBlue or any highlight color
+      }
+    
+      textarea {
+        min-height: 100px;
+        resize: vertical;
+
+        &::placeholder{
+          font-size: 0.85rem;
+        }
+      }
+    }
+
+    .form-group-textarea{
+      width: 100%;
+    
+    }
+
+    h3{
+      margin: 0px;
+      padding: 0px;
+      color: $accent-color;
+      margin-bottom: 2rem;
+      display: flex;
+      height: 2rem;
+      align-items: center;
+      color: #4682B4;
+      padding-left: 0.5rem;
+      height: 3rem;
+      border-bottom: 1px solid #4682B4;
+      margin-top: 1rem;
+  
+      i{
+        margin-right: 1rem;
+        display: none;
+      }
+    }
+
+    label {
+      margin-bottom: 5px;
+      font-size: 0.8rem;
+      text-transform: capitalize;
+      color: #4682B4;
+      margin-right: auto;
+    }
+
+    .slider-container {
+      width: 100%; /* Adjust as needed */
+      position: relative;
+      height: 4rem;
+
+      .percentage-slider {
+        width: 100%;
+        -webkit-appearance: none;
+        appearance: none;
+        background: #e5e9f0;
+        height: 20px;
+        border-radius: 2rem;
+        outline: none;
+
+    
+        &::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 40px;
+          height: 40px;
+          background: white;
+          border: 2px solid #4682B4;
+          cursor: pointer;
+          border-radius: 50%;
+          outline: 1px solid transparent;
+          box-shadow: 0 0 4px rgba(70, 130, 180, 0.3);
+        }
+
+        &::-webkit-slider-thumb:hover{
+          transform: scale(1.1);
+          transition-duration: 0.4s;
+          outline: 1px solid #4682B4;
+        }
+    
+        &::-moz-range-thumb {
+          width: 15px;
+          height: 15px;
+          background: #4CAF50;
+          cursor: pointer;
+          border-radius: 50%;
+          border: none;
+        }
+      }
+    
+      .scale {
+        position: absolute;
+        top: 30px; /* Adjust spacing as needed */
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        font-size: 1.2rem;
+    
+        span {
+          font-size: 1rem;
+          color: #555;
+          padding-top: 1rem;
+          display: none;
+        }
+      }
+    
+      .value-display {
+        position: absolute;
+        top: 35px; /* Adjust spacing as needed */
+        left: 90%;
+        font-size: 0.9em;
+        color: white;
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem;
+        padding: 0.8rem;
+        height: 2rem;
+        width: 2rem;
+        border-radius: 50%;
+        background-color: #4682B4;
+        border: 2px solid #4682B4;
+        letter-spacing: 2px;
+        opacity: 0;
+        box-shadow: 0 0 5px rgba(255, 69, 0, 0.25);
+
+      }
+    }
+
+    .form-buttons {
+      display: flex;
+      gap: 15px;
+      margin-top: 25px;
+      justify-content: flex-start;
+      width: 100%;
+
+      .btn {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 0.2rem;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        color: white;
+
+        &.steelblue {
+          background-color: $accent-color;
+
+          &:hover {
+            background-color: darken($accent-color, 8%);
+          }
+
+          &.outline {
+            background-color: transparent;
+            border: 2px solid $accent-color;
+            color: $accent-color;
+
+            &:hover {
+              background-color: $accent-color;
+              color: white;
+            }
+          }
+        }
+      }
+
+    }
+  }
+}
+
+// SCALE UP AND DOWN PERCENTAGE ON VALUE CHANGE (offer adjuster)
+
+@keyframes scaleUpDown {
+  0% {
+      transform: translateX(-50%) scale(1);
+  }
+  50% {
+      transform: translateX(-50%) scale(1.2);
+  }
+  100% {
+      transform: translateX(-50%) scale(1);
+  }
+}
+
+.value-display {
+  position: absolute;
+  top: 25px; /* Adjust spacing as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9em;
+  color: #333;
+  transition: transform 0.3s ease-in-out;
+}
+
+.value-display.scale-animation {
+  animation: scaleUpDown 0.3s ease-in-out;
+}

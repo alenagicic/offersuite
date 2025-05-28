@@ -1,0 +1,144 @@
+@model List<OfferSuite.Model.OfferModel>
+
+
+<div class="incoming-bar">
+    <div>
+        <p class="incoming-bar-first">Status</p>
+        <p>Vehicle</p>
+        <p>Model</p>
+        <p>Drivetrain</p>
+        <p>Color</p>
+        <p>Date</p>
+        <p>Generated Offer</p>
+    </div>
+</div>
+<div class="incoming-requests">
+    @foreach (var request in Model)
+    {
+        <div class="request-item" data-expanded="false">
+
+            <p id="id-for-incoming-item" style="display:none">
+                @request.Id
+            </p>
+            
+            <div class="request-item-header">
+                <p class="request-item-head-name">
+                    <span class="request-arrow-rejected">
+                        <i class="fa-solid fa-arrow-right"></i>
+                        Rejected
+                    </span>
+                   <span>
+                        <i class="fa-solid fa-car-side"></i>
+                        @request.Make
+                    </span>
+                    <span>
+                        @request.Model
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-clock"></i>
+                        @request.Drivetrain
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-clock"></i>
+                        @request.Color
+                    </span>
+                    <span>
+                        <i class="fa-solid fa-clock"></i>
+                        @request.OfferCreated
+                    </span>
+                    <span>
+                        @request.GeneratedOffer (SEK)
+                    </span>
+                </p>
+            </div>
+         
+            <!-- Contact Information -->
+            <div class="contact-info">
+        
+                <div class="expand-wrapper">
+                    <p>
+                        <i class="bi bi-arrow-counterclockwise"></i>
+                    </p>
+                    <p>
+                        <i class="bi bi-arrows-expand"></i>
+                    </p>
+                </div>
+
+                <div class="expand-btn-reject" style="display:none">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </div>
+            </div>
+
+            <!-- Vehicle Details -->
+            <div class="vehicle-details">
+                <h5>Vehicle Details</h5>
+
+                <span class="transportstyrelsen-btn">
+                    <span>
+                        Transportstyrelsen
+                    </span>
+                </span>
+
+                <span class="registrationcopy-btn">
+                    <span>
+                        @request.RegistrationNumber!.ToUpper()
+                    </span>
+                </span>
+            </div>
+
+            <div class="contact-info-new">
+                <h5>Contact Info</h5>
+                <p><strong>Email:</strong> @request.Email</p>
+                <p><strong>Phone:</strong> @request.Phone</p>
+            </div>
+
+            <!-- Vehicle History -->
+            <div class="vehicle-history">
+                <h5>Vehicle History</h5>
+                <p><strong>Owners:</strong> @request.Owners</p>
+                <p><strong>Service History:</strong> @request.ServiceHistory</p>
+                <p><strong>Next Inspection:</strong> @request.NextInspection</p>
+                <p><strong>Accident History:</strong> @request.AccidentHistory</p>
+            </div>
+
+            <!-- Financial/Legal Info -->
+            <div class="financial-legal-info">
+                <h5>Financial & Legal Info</h5>
+                <p><strong>Financed:</strong> @request.Financed</p>
+                <p><strong>Registration Status:</strong> @request.RegistrationStatus</p>
+                <p><strong>Packages:</strong> @request.Packages</p>
+                <p><strong>Towbar:</strong> @request.Towbar</p>
+            </div>
+
+            <!-- Additional Info -->
+            <div class="additional-info">
+                <h5>Additional Info</h5>
+                <p><strong>Additional Information:</strong> @request.VehicleInfo</p>
+            </div>
+
+            <!-- Offer and Status -->
+            <div class="offer-status">
+                <h5>Offer Status</h5>
+                <p><strong>Status:</strong> @request.Status</p>
+                <p><strong>Response Offer:</strong> @request.ResponseOffer</p>
+                <p><strong>Offer Created:</strong> @request.OfferCreated</p>
+            </div>
+
+            <!-- Photos (if any) -->
+            @if (request.Photos != null && request.Photos.Any())
+            {
+                <div class="photos">
+                    <h5>Photos:</h5>
+                    <ul>
+                        @foreach (var photo in request.Photos)
+                        {
+                            <li><img src="@photo" alt="Vehicle photo" style="max-width: 200px; max-height: 200px;"/></li>
+                        }
+                    </ul>
+                </div>
+            }
+
+            <hr />
+        </div>
+    }
+</div>

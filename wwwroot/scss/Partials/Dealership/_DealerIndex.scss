@@ -1,0 +1,83 @@
+.dealer-idx-wrapper{
+    display: flex;
+    justify-content: center;
+    column-gap: 3rem;
+    padding-left: 1rem;
+    padding-right: 2rem;
+
+    .dealer-idx-column{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1rem;
+        z-index: 40;
+        margin-top: 1rem;
+        padding: 0.5rem;
+        margin-right: auto;
+        background-color: #4682B4;
+        opacity: 1;
+        border-radius: 0.4rem;
+        
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+
+
+        a{
+            margin: 0px;
+            padding: 0px;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .dealer-idx-btn{
+            color: whitesmoke;
+            width: 3.5rem;
+            height: 3.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            border-radius: 0.2rem;
+
+            i{
+                margin: 0px;
+                padding: 0px;
+                font-size: 1.4rem!important;
+                min-width: 1.8rem;
+                min-height: 1.8rem;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items:center;
+                opacity: 1;
+            }
+        }
+
+        .dealer-idx-btn:hover{
+            background-color: #e5e9f0;
+            transition-duration: 0.2s;
+            color: #4682B4!important;
+            transition: all 0.3s ease;
+        }
+
+        .dealer-btn-signout{
+            background-color: transparent;
+        }
+
+    }
+
+    .dealer-partial-data{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        border-radius: 0.2rem;
+        margin-top: 1rem;
+        border: 1px solid #ddd;
+        height: 86vh;
+        overflow: hidden;
+        margin-right: auto;
+        padding: 0.5rem;
+
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Soft shadow for depth */
+
+    }
+}

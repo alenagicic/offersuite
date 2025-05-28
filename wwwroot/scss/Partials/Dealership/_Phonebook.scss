@@ -1,0 +1,882 @@
+$background-color: whitesmoke;
+$accent-color: steelblue;
+$text-color: #333;
+$highlight-color: #4a90e2;
+$border-color: #ddd;
+
+
+// CSS FOR GENERAL PHONEBOOK
+.wrapper-phonebook{
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .wrapper-navbar-phonebook{
+        width: 100%;
+        display: flex;
+        position: sticky;
+        align-items: center;
+        top: 0px;
+        z-index: 10;
+        box-sizing: border-box;
+        column-gap: 0.5rem;
+        padding-left: 0.1rem;
+
+        .customer-btn{
+          max-height: 2.5rem;
+          min-height: 2.5rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          box-sizing: border-box;
+          user-select: none;
+          min-width: 10rem;
+          border: 1px solid #ddd;
+        }
+
+        .customer-btn:hover{
+          cursor: pointer;
+          background-color: #4683b41b;
+          transition-duration: 0.2s;
+          color: #4682B4;
+        }
+    }
+
+    .wrapper-data-phonebook{
+        width: 100%;
+        box-sizing: border-box;
+        height: 80dvh;
+    }
+
+}
+
+// CSS FOR LIST USERS
+.wrapper-customer {
+    max-height: 100%!important;
+    position: relative;
+    animation: fadeSlideIn 0.6s forwards;
+    width: 100%;
+    padding-top: 1rem;
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    .wrapper-navbar-customer {
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      max-height: 4rem;
+      min-height: 4rem;
+      width: 100%;
+      position: sticky;
+      top: 0px;
+      color: white;
+      background-color: white;
+
+      .customer-search-input {
+        width: 30%;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        color: #555;
+        padding-left: 0.5rem;
+        max-height: 2.8rem;
+        min-height: 2.8rem!important;
+        animation: fadeSlideIn 0.6s forwards;
+        outline: 1px solid transparent;
+        border-color: #ddd;
+        cursor: pointer;
+        box-sizing: border-box;
+        z-index: 100;
+        margin-left: 0.1rem;
+
+        &:focus {
+          outline: 1px solid $accent-color;
+          cursor:auto;
+        }
+
+        &:hover{
+          background-color: lighten($color: #4682B4, $amount: 48%);
+        }
+
+        &::placeholder{
+            color: #555;
+        }
+        
+      }
+
+      .customer-navbar-campaign {
+        display: flex;
+        justify-content: flex-end;
+        column-gap: 0.5rem;
+        align-items: center;
+        animation: fadeSlideIn 0.6s ease-in-out;
+        align-items: center;
+        box-sizing: border-box;
+        padding-left: 0.102rem;
+    
+        .customer-navbar-btn {
+          border: 1px solid #ddd;
+          color: #555;
+          cursor: pointer;
+          min-width: 10rem;
+          box-sizing: border-box;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100%;
+          max-height: 2.8rem;
+          min-height: 2.8rem!important;
+          
+          
+          &:hover {
+            background-color: #4683b41b;
+            border: 1px solid #4683b43d;    
+            color: #4682B4;
+            transition-duration: 0.2s;
+          }
+        }
+      }
+
+    }
+
+    .wrapper-customer-data {
+        display: flex;
+        flex-direction: column;
+        color: #555;
+        overflow: auto;
+        overflow-x: hidden;
+        min-height: 65dvh;
+        max-height: 65dvh;
+        flex: 1;
+        border: 1px solid #ddd;
+        margin-left: 0.1rem;
+        box-sizing: border-box;
+
+        .customer-entry {
+          border-bottom: 1px solid #ddd;
+          width: auto;
+          display: flex;
+          opacity: 0;
+          align-items: center;
+          transition: transform 0.6s ease;
+          min-height: 4rem;
+          max-height: 4rem;
+          box-sizing: border-box;
+          animation: fadeSlideIn 0.6s forwards;
+          transition: all 0.6s ease;
+          box-sizing: border-box;
+          font-weight: 300!important;
+          margin-left: 0.1rem;
+          padding-left: 1rem;
+          padding-right: 1rem;
+          color: #333!important;
+          
+
+          div{
+              margin: 0px;
+              padding: 0px;
+              display: flex;
+              align-items: center;
+              overflow: hidden;
+              
+              .customer-entry-data{
+                  font-size: 1rem!important;
+                  color: #333!important;
+                  background-color: transparent!important;
+                  border: none!important;
+                  display: flex;
+                  align-items: center;
+              }
+          }
+
+          // FOR ICONS
+          .customer-entry-data{
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+            align-items: center!important;
+            column-gap: 0.5rem!important;
+            color: #333  !important;
+
+            i{
+              font-size: 1rem!important;
+              color: #4682B4 !important;
+              display: flex;
+              align-items: center;
+              display: none;
+            }
+          }
+
+          .customer-entry-shrtr{
+            margin: 0px;
+            padding: 0px;
+            color: #333;
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;     
+            max-width: 16rem;
+            align-items: center;
+            max-height: 1.5rem;
+
+            .customer-entry-data{
+              margin: 0px;
+              padding: 0px;
+              font-size: 1rem!important;
+              color: #333;
+              align-items: center;
+            }
+            
+          }
+          
+          .customer-entry-even-shrtr{
+            color: #333;
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: flex;    
+            align-items: center; 
+            max-width: 10rem;
+
+            .customer-entry-data{
+              margin: 0px;
+              padding: 0px;
+              font-size: 1rem!important;
+              color: #333;
+            }
+            
+          }
+
+          .customer-entry-chevron {
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-left: auto;
+            width: auto;
+          
+            .fa-floppy-save {
+              display: none;
+            }
+          
+            p {
+              margin: 0;
+              min-width: 2rem;
+              min-height: 2rem;
+              max-width: 2rem;
+              max-height: 2rem;
+              box-sizing: border-box;
+              cursor: pointer;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 1.1rem !important;
+              border-radius: 0.2rem;
+              border: 1px solid #555;    
+              color: #555;
+              
+              .fa-trash{
+                transform: scale(0.88);
+              }
+            }
+          
+            p:hover {
+              transition-duration: 0.2s;
+              background-color: #4682B4;
+              color: white;
+              border: 1px solid #4682B4;
+            }
+          }
+
+          #customer-entry-info{
+            width: 100%;
+            min-height: 12rem;
+            overflow: hidden;
+            overflow-x: hidden;
+
+            .datetimepicker-user{
+              background-color: #4682B4;
+              color: white;
+              width: 5rem;
+              height: 2rem;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border-radius: 0.2rem;
+            }
+
+            textarea{
+              padding: 0.5rem;
+              font-size: 1rem;
+              min-height: 100%;
+              background-color: white!important;
+
+              &:focus{
+                border: none;
+                outline: none;
+                background-color: white;
+              }
+            }
+          }
+
+        }
+    }
+}
+
+// CSS FOR FORM ADD
+.customer-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 0.2rem;
+    animation: fadeSlideIn 0.6s forwards;
+    width: auto;
+    column-gap: 4%;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding-top: 2rem;
+
+    label {
+      margin-bottom: 0.4rem;
+      font-size: 0.8rem;
+      text-transform: capitalize;
+      color: $accent-color;
+      margin-right: auto;
+    }
+
+    textarea {
+      margin: 0px;
+      padding: 0px;
+      min-height: 150px;
+      min-width: 100%!important;  // Ensure it takes the full width
+      padding: 0.5rem;
+      box-sizing: border-box;
+      padding: 0.6rem;
+      border: 1px solid $border-color;
+      border-radius: 2px;
+      font-size: 1rem;
+      background-color: white;
+      color: $text-color;
+      font-family: inherit;
+      height: 2.8rem;
+      min-width: 100%;
+      box-sizing: border-box;
+
+      &:focus {
+        outline: 1px solid $accent-color;
+        border-color: $accent-color;
+      }
+    }
+  
+    &__group {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1rem;
+      width: 48%;
+      box-sizing: border-box;
+  
+      label {
+        margin-bottom: 0.4rem;
+        font-size: 0.8rem;
+        text-transform: capitalize;
+        color: $accent-color;
+      }
+  
+      input,
+      textarea,
+      select {
+      padding: 0.6rem;
+      border: 1px solid $border-color;
+      border-radius: 2px;
+      font-size: 1rem;
+      background-color: white;
+      color: $text-color;
+      font-family: inherit;
+      height: 2.8rem;
+      min-width: 100%;
+      box-sizing: border-box;
+      opacity: 10;
+
+      &:focus {
+          outline: 1px solid $accent-color;
+          border-color: $accent-color;
+      }
+
+      &[readonly] {
+          background-color: #f0f0f0;
+          color: #888;
+          cursor: not-allowed;
+      }
+
+      &[disabled] {
+          background-color: #e5e9f0;
+          color: #999;
+          border-color: #ccc;
+          cursor: not-allowed;
+      }
+      }
+
+      select{
+        font-size: 1rem;
+        color: #4682B4;
+        appearance: none;
+      }
+  
+      &:focus-within label {
+        color: $accent-color;
+      }
+    }
+
+    .customer-form-settings-wrapper{
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin: 0px;
+      padding: 0px;
+      padding-top: 1rem;
+      align-items: center;
+
+
+      .btn {
+        margin: 0px;
+        padding: 0px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 0.2rem;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        color: white;
+        box-sizing: border-box;
+        min-height: 2.5rem;
+        max-height: 2.5rem;
+        width: 15%;
+
+        &.steelblue {
+          background-color: $accent-color;
+  
+          &:hover {
+            background-color: darken($accent-color, 10);
+          }
+  
+          &.outline {
+            background-color: transparent;
+            border: 2px solid $accent-color;
+            color: $accent-color;
+  
+            &:hover {
+              background-color: $accent-color;
+              color: white;
+            }
+          }
+        }
+      }
+        
+      .customer-entry-datetime{
+        border: 1px solid #4682B4;
+        background-color: #4682B4;
+        color: white;
+        min-height: 2.5rem;
+        max-height: 2.5rem;
+        min-width: 2.5rem;
+        max-width: 2.5rem;
+        border-radius: 0.2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+      }
+
+      .customer-entry-datetime:hover{
+        background-color: darken($color: #4682B4, $amount: 10);
+        cursor: pointer;
+        transition-duration: 0.2s;
+      }
+      
+    }
+
+}
+
+// CSS FOR CAMPAIGN
+.customer-campaign {
+  display: flex;
+  flex-direction: column;
+  height: 79.3dvh;
+  overflow: scroll;
+  overflow-x: hidden;
+
+  .customer-email-editor,
+  .customer-sms-editor{
+    animation: fadeSlideIn 0.6s ease-in-out;
+    height: 100%!important;
+    padding-bottom: 1rem;
+    box-sizing: border-box;
+    margin-left: 0.05rem;
+
+    .customer-email-subject{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      padding-bottom: 0.5rem;
+      height: 20%;
+      
+      input{
+        padding: 0.6rem;
+        border: 1px solid $border-color;
+        border-radius: 2px;
+        font-size: 1rem;
+        background-color: white;
+        color: $text-color;
+        font-family: inherit;
+        height: 2.8rem;
+        min-width: 100%;
+        box-sizing: border-box;
+
+        &:focus {
+          outline: 1px solid #4682B4;
+          border-color: #4682B4;
+        }
+
+      }
+
+    }
+
+    .wrapper-text-editor {
+      box-sizing: border-box;
+      font-size: 1rem;
+      min-height: 10rem!important;
+
+      .ql-editor-container{
+        max-height: 10rem;
+      }
+    }
+
+    .btn-editor-submit {
+      width: 20%;
+      min-height: 2.5rem;
+      border-radius: 0.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #4682B4;
+      color: white;
+      margin-top: 1rem;
+      height: 3rem;
+
+      &:hover {
+        background-color: darken($color: #4682B4, $amount: 10);
+        color: white;
+        transition-duration: 0.2s;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .customer-sms-editor{
+    display: none;
+  }
+
+  .customer-email-editor{
+    display: none;
+  }
+
+}
+
+// CSS ACTIVE CLASS BTN
+.phonebook-active {
+  background-color: #4683b41b;
+  border: 1px solid #4683b43d;    
+  color: #4682B4;
+}
+
+// CSS ACTIVE TOP-PRIORITY
+.phonebook-top-prio{
+  background-color: orangered;
+  color: white;
+}
+
+// CSS FOR TOGGLE ACTIVATE
+.toggle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: sans-serif;
+  margin-right: auto;
+
+  .toggle-label {
+    margin-bottom: 0.4rem;
+    font-size: 0.8rem;
+    text-transform: capitalize;
+    color: $accent-color;
+  }
+
+  .toggle-switch {
+    position: relative;
+    width: 50px;
+    height: 26px;
+
+    input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+
+      &:checked + .slider {
+        background-color: #4CAF50;
+
+        &::before {
+          transform: translateX(24px);
+        }
+      }
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #e5e9f0;
+      transition: 0.4s;
+      border-radius: 34px;
+      border: 1px solid #ddd;
+
+      &::before {
+        content: "";
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        left: 3px;
+        bottom: 3px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+// CSS FOR DASHBOARD
+.wrapper-phonebook-dashboard {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+  overflow-x: hidden;
+  height: 74vh;
+  padding: 1rem;
+  flex: 1;
+  row-gap: 2%;
+  
+  *{
+    box-sizing: border-box;
+  }
+
+  h5{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    column-gap: 0.5rem;
+    align-items: center;
+    font-size: 1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: #333;
+    width: 25%;
+    height: 2.5rem;
+    display: none;
+
+    i{
+      display: none;
+    }
+  }
+
+  .phn-active-users {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.2rem;
+      max-height: 100%;
+      min-height: 100%;
+      width: 49%;
+      display: none;
+
+      div{
+        height: 100%;
+      }
+
+  }
+
+  .phn-active-n-highprio {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.2rem;
+    max-height: 100%;
+    min-height: 100%;
+    width: 100%;
+    margin-left: auto;
+    display: none;
+
+    div{
+      height: 100%;
+    }
+
+  }
+
+  .phn-recently-added {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0rem;
+    row-gap: 1rem;
+    max-height: 38%;
+    min-height: 38%;
+    flex: 1;
+    display: none;
+  }
+
+  .phn-count {
+    display: flex;
+    max-height: 100%;
+    min-height: 100%;
+    flex: 1;
+    align-items: flex-start;
+    width: 15rem;
+    display: none;
+
+      .phn-partner-count {
+        width: 100%;
+        border-radius: 0.4rem;
+        display: flex;
+        min-width: 8rem;
+        height: 5rem;
+        border: 1px solid black;
+
+        h5{
+          margin: 0px;
+          padding: 0px;
+          display: flex;
+          align-items: center;
+          width: 5rem;
+          border: 1px solid black;
+        }
+    
+      }
+
+      .phn-customer-count {
+        width: 100%;
+        border-radius: 0.4rem;
+        display: flex;
+        min-width: 8rem;
+        height: 5rem;
+        border: 1px solid black;
+
+        h5{
+          margin: 0px;
+          padding: 0px;
+          display: flex;
+          align-items: center;
+          width: 5rem;
+          border: 1px solid black;
+        }
+
+        p{
+          color: #555;
+          margin: 0px;
+          padding: 0px;
+          border: 1px solid black;
+          height: 2.5rem;
+          display: flex;
+          align-items: center;
+        }
+      }
+  }
+
+  .wrapper-active-user{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+    border: 1px solid #ddd;
+    border-radius: 0.2rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+
+    .wrapper-dash-items{
+      display: flex;
+      column-gap: 0.5rem;
+      border-bottom: 1px solid #ddd;
+      cursor: pointer;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      min-height: 4rem;
+      align-items: center;
+      padding-top: 0.2rem;
+      width: 100%;
+      overflow: hidden;
+      
+
+      .wrapper-dash-items-notext{
+        display: flex;
+        width: 100%;
+        align-items: center;
+
+        p{
+          margin: 0px;
+          padding: 0px;
+          padding-top: 0.2rem;
+          padding-bottom: 0.2rem;
+          min-width: 6rem;
+          color: #555;
+        }
+
+        .toggle-dash-info{
+          margin-left: auto;
+          padding-right: 0.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #4683b41b;
+          color: #4682B4;
+          border-radius: 0.2rem;
+          border: 1px solid #4683b43d;    
+
+        }
+
+      }
+         
+      .wrapper-customer-data-dash{
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        height: 4rem;
+        width: 4rem;
+        display: none;
+        width: 100%;
+        min-height: 10rem;
+        margin-bottom: 1rem;
+        overflow: auto;
+        overflow-x: hidden;
+      }
+
+    }
+
+    .wrapper-dash-items:hover{
+      background-color: #e5e9f07b;
+      transition-duration: 0.2s;
+
+      .toggle-dash-info{
+        text-decoration: underline;
+      }
+    }
+
+  }
+
+}

@@ -1,0 +1,95 @@
+@model OfferSuite.Model.AccountModel
+
+<div class="account-settings">
+    <h3><i class="fa-solid fa-gear"></i> Account Settings</h3>
+
+    <!-- Use ASP.NET Core helpers for form action and method -->
+    <form id="accountSettingsForm" method="POST" asp-controller="Dealership" asp-action="PostAccountSettings">
+    @Html.AntiForgeryToken() <!-- Make sure you include this for anti-forgery validation -->
+        <input name="id" style="display: none;" value="@Model.Id"/>
+
+        <!-- Hidden field to override method to PUT -->
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="Email" value="@Model?.Email" />
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="Password" value="@Model?.Password" />
+        </div>
+        <div class="form-group">
+            <label for="companyName">Company Name</label>
+            <input type="text" id="companyName" name="CompanyName" value="@Model?.CompanyName" />
+        </div>
+        <div class="form-group">
+            <label for="orgNumber">Organisation Number</label>
+            <input type="text" id="orgNumber" name="OrganisationNumber" value="@Model?.OrganisationNumber" />
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" id="address" name="Address" value="@Model?.Address" />
+        </div>
+        <div class="form-group">
+            <label for="addressCo">Address Co</label>
+            <input type="text" id="addressCo" name="AddressCo" value="@Model?.AddressCo" />
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="PhoneNumber" value="@Model?.PhoneNumber" />
+        </div>
+        <div class="form-group">
+            <label for="postal">Postal Code</label>
+            <input type="text" id="postal" name="PostalCode" value="@Model?.PostalCode" />
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" id="city" name="City" value="@Model?.City" />
+        </div>
+        <div class="form-group">
+            <label for="county">County</label>
+            <input type="text" id="county" name="County" value="@Model?.County" />
+        </div>
+        <div class="form-group">
+            <label for="subscription">Subscription Type</label>
+            <input disabled type="text" id="subscription" name="SubscriptionType" value="@Model?.SubscriptionType" />
+        </div>
+        <div class="form-group">
+            <label for="paymentMethod">Payment Method</label>
+            <input disabled type="text" id="paymentMethod" name="PaymentMethod" value="@Model?.PaymentMethod" />
+        </div>
+
+
+        <h3><i class="fa-solid fa-gear"></i>Application Settings</h3>
+
+        <label for="paymentMethod">Finetune Offer</label>
+
+        <div class="slider-container">
+            <input type="range" min="-20" max="20" value="0" class="percentage-slider">
+
+                <div class="scale">
+                    <span>-20%</span>
+                    <span>0%</span>                 
+                    <span>20%</span>
+                </div>
+
+            <div class="value-display">0%</div>
+        </div>
+
+
+        <div class="form-group form-group-textarea">
+            <label for="emailDecline">Email Response (Decline)</label>
+            <textarea placeholder="Leave empty for standard response" id="emailDecline" name="EmailResponseDecline">@Model?.EmailResponseDecline</textarea>
+        </div>
+        <div class="form-group form-group-textarea">
+            <label for="emailApprove">Email Response (Approve)</label>
+            <textarea placeholder="Leave empty for standard response" id="emailApprove" name="EmailResponseApprove">@Model?.EmailResponseApprove</textarea>
+        </div>
+
+        <div class="form-buttons">
+            <button type="submit" class="btn steelblue">Save Settings</button>
+            <button type="button" class="btn steelblue outline">Change Payment Method</button>
+        </div>
+
+    </form>
+</div>

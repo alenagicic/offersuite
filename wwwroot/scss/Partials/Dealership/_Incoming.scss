@@ -1,0 +1,435 @@
+// Base colors
+$background-color: whitesmoke;
+$accent-color: #4682B4;
+$text-color: #333;
+$highlight-color: #4682B4;
+$border-color: #ddd;
+$border-color-dark: #bbb;
+
+.ti-star{
+  z-index: 10000;
+}
+
+h3, h4, h5 {
+  color: $accent-color;
+  font-weight: 500;
+}
+
+.request-item-header{
+    display: flex;
+    align-items: center;
+    color: #555;
+    border-radius: 0.4rem;
+    height: 3rem;
+    margin-bottom: auto;
+    width: 75%;
+    column-gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    *{
+      box-sizing: border-box;
+    }
+
+    .request-item-head-name{
+      margin: 0px;
+      padding: 0px;
+      display: flex;
+      align-items: center;
+      column-gap: 1rem;
+      white-space: nowrap;
+      border-radius: 0.2rem;
+      text-transform: uppercase;
+      min-width: 40rem!important;
+
+      span{
+        margin: 0px;
+        padding: 0px;
+        min-height: 2.2rem!important;
+        max-height: 2.2rem!important;
+        display: flex;
+        align-items: center;
+        text-transform: capitalize;
+        min-width: 6rem;
+        max-width: 6rem;
+        color: #333!important;
+        font-size: 1.05rem;
+        letter-spacing: 0.01em;
+
+        i{
+          margin: 0px;
+          padding: 0px;
+          color: #8c8c8c;
+          min-width: 2rem;
+          min-height: 2rem!important;
+          max-height: 2rem!important;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items:center;
+          margin-right: 0.5rem;
+          border: 1px solid #8c8c8c;
+          display: none;
+        }
+        
+      }
+
+      .request-arrow {
+        margin: 0;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.2rem;
+        margin-right: 2rem;
+        overflow: visible;
+        font-size: 0.9rem!important;
+       
+        /* Harmonized Action Button Styles */
+        background-color: #d4edda; /* light green background */
+        color: #155724!important; /* dark green text */
+        border: 1px solid #c3e6cb;  /* subtle green border */
+
+        // background-color: transparent;
+        // color: #4682B4!important;
+        // border: 1px solid #bee1ec;  
+      }
+
+      .request-arrow-rejected {
+        margin: 0;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.8rem !important;
+        border-radius: 0.2rem;
+        margin-right: 2rem;
+        overflow: visible;
+      
+        /* Rejected/Declined Button Styles */
+        background-color: #f8d7da; /* light red/pink background */
+        color: #721c24 !important; /* dark red text */
+        border: 1px solid #f5c6cb;  /* subtle red border */
+      
+        /* Subtle red shadow */
+      
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+      }
+
+    }
+   
+}
+
+.incoming-bar{
+  background-color: whitesmoke;
+  background-color: $accent-color;
+  width: 100%;
+  display: flex;
+  min-height: 3rem;
+  max-height: 3rem;
+  overflow: hidden;
+  position: sticky;
+  top: 0px;
+  z-index: 50;
+  animation: fadeSlideIn 0.6s forwards;
+  //box-shadow: 0 4px 12px rgba(0, 0, 0, 0.151);
+  box-sizing: border-box;
+
+  *{
+    box-sizing: border-box;
+  }
+  
+  div{
+    min-width: 40rem!important;
+    display: flex;
+    margin-left: 56px;
+    column-gap: 1rem;
+
+    .incoming-bar-first{
+      margin-right: 0.5rem;
+    }
+
+    p{
+      margin: 0px;
+      padding: 0px;
+      color: white;
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      text-transform: capitalize;
+      min-width: 6rem;
+      max-width: 6rem;
+      overflow: hidden;
+    }
+  }
+}
+
+.incoming-requests {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  overflow: auto;
+  overflow-x:hidden ;
+  position: relative;
+  padding-bottom: 0.5rem;
+  animation: fadeSlideIn 0.6s forwards;
+  padding-top: 0.5rem;
+  border-radius: 0.2rem;
+}
+
+.request-item {
+  border-bottom: 1px solid $border-color;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  height: 5rem;
+  padding: 18px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  transition: all 0.3s ease!important;
+  align-items: center;
+  position: relative;
+  
+  /* Align sections to have a max width and allow wrapping */
+  .contact-info-new,
+  .vehicle-details,
+  .technical-details,
+  .vehicle-history,
+  .financial-legal-info,
+  .additional-info,
+  .offer-status,
+  .photos {
+    flex: 1 1 48%; /* Ensure sections take up roughly half the width */
+    min-width: 250px; /* Prevent sections from being too narrow */
+    padding: 1rem;
+    background-color: white;
+    border-radius: 0.2rem;
+    border: 1px solid $border-color;
+
+    .transportstyrelsen-btn{
+      font-size: 1.5rem;
+      border: 1px solid #4682B4;
+      padding: 0.7rem;
+      border-radius: 1rem;
+      cursor: pointer;
+      background-color: #4683b41b;
+      box-sizing: border-box;
+      position: relative;
+      justify-content: center;
+      min-width: 13.5rem;
+      max-width: 13.5rem;
+
+      .transportstyrelsen-btn-helper{
+          font-size: 0.8rem;
+          position: absolute;
+          background-color: whitesmoke;
+          padding: 0.7rem;
+          margin-top: 1rem;
+          left: 0px;
+          right: 0px;
+          animation: fadeSlideIn 0.4s forwards;
+          border-radius: 0.2rem;
+      }
+  }
+  }
+
+  .vehicle-details{
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    column-gap: 1rem;
+
+    h5{
+      margin: 0px;
+      padding: 0px;
+      display: flex;
+      align-items: center;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    .transportstyrelsen-btn{
+      all: unset;
+      border: 1px solid #4682B4;
+      transition-duration: 0.2s;
+      border-radius: 1rem;
+      color: #4682B4;
+      padding: 1rem;
+      border-radius: 1rem;
+      width: 10rem;
+      margin-left: auto;
+      background-color: #4683b41b;
+    }
+
+    .transportstyrelsen-btn:hover{
+      background-color: #4682B4;
+      color: white;
+      cursor: pointer;
+    }
+
+    .registrationcopy-btn{
+      all: unset;
+      border: 1px solid #4682B4;
+      transition-duration: 0.2s;
+      border-radius: 1rem;
+      color: #4682B4;
+      padding: 1rem;
+      border-radius: 1rem;
+      width: 10rem;
+      background-color: #4683b41b;
+    }
+
+    .registrationcopy-btn:hover{
+      background-color: #4682B4;
+      color: white;
+      cursor: pointer;
+    }
+
+  }
+
+  .contact-info {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+    margin-right: 1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.4rem;
+    position: absolute;
+    right: 1rem;
+    top: 0.76rem;
+
+    .expand-wrapper {
+      cursor: pointer;
+      color: #4682B4;
+      display: flex;
+      justify-content: flex-end;
+      column-gap: 1rem;
+      align-items: center;
+      height: 2.5rem;
+      column-gap: 0.5rem;
+
+      p {
+        margin: 0;
+        min-width: 2.5rem;
+        min-height: 2.5rem;
+        max-width: 2.5rem;
+        max-height: 2.5rem;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.2rem!important;
+        border-radius: 0.2rem;
+        background-color: #4683b41b;
+        color: #4682B4;
+        border: 1px solid #4683b43d;    
+
+        .bi-reply{
+          transform: scale(1.2);
+        }
+
+        .bi-clock-history{
+          padding-top: 0.1rem;
+          transform: scale(0.9);
+        }
+
+        .bi-arrows-expand{
+          padding-top: 0.1rem;
+          transform: scale(0.85);
+        }
+
+        .bi-x{
+          transform: scale(1.2);
+        }
+
+      }
+
+      p:hover{
+        transform: scale(1.1);
+        transition-duration: 0.2s;    
+      }
+      
+    }
+   
+  }
+
+  .vehicle-details,
+  .technical-details,
+  .vehicle-history,
+  .financial-legal-info,
+  .additional-info,
+  .contact-info-new,
+  .offer-status {
+    h5 {
+      margin: 0px;
+      padding: 0px;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+    strong {
+      color: $highlight-color;
+    }
+  }
+
+  // Photos Section
+  .photos {
+    width: 100%;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+
+      li {
+        max-width: 200px;
+        list-style-type: none; /* Remove default list styling */
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  hr {
+    margin-top: 20px;
+    border: 0;
+    border-top: 1px solid $border-color;
+  }
+}
+
+.request-item:hover{
+  transition-duration: 0.2s;
+
+  .expand-wrapper {
+  
+
+    p {
+      &:hover {
+        background-color: $accent-color;
+        opacity: 0.9;
+        color: white;
+      }
+    }
+  }
+
+}

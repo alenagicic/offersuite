@@ -1,0 +1,141 @@
+@model List<OfferSuite.Model.FiltrationResult>
+
+<div class="stat-navbar">
+       <!-- Action buttons -->
+
+        <!-- Year select dropdown -->
+        <select class="navbar-btn" id="yearSelect">
+            <option value="2025">2025</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <!-- Add more years if needed -->
+        </select>
+
+        <div class="navbar-btn" data-action="incoming-requests-per-month">
+            Incoming Requests
+        </div>
+
+        <div class="navbar-btn" data-action="rejected-offers">
+            Rejected Offers
+        </div>
+
+        <div class="navbar-btn" data-action="accepted-offers">
+            Accepted Offers
+        </div>
+
+        <div class="navbar-btn" data-action="requests-by-car-model">
+            Car Models
+        </div>
+
+        <div class="navbar-btn" data-action="average-offer-amount">
+            Average Offer
+        </div>
+
+
+
+<!-- Container where partial views will be injected -->
+
+</div>
+
+<div class="statistics-view">
+    @if (Model != null && Model.Any())
+    {
+        foreach (var stat in Model)
+        {
+            <div class="stat-block">
+            @if (!string.IsNullOrEmpty(stat.Month) || !string.IsNullOrEmpty(stat.Year))
+            {
+                var shortMonth = !string.IsNullOrEmpty(stat.Month) && stat.Month.Length >= 3 
+                    ? stat.Month.Substring(0, 3) 
+                    : stat.Month;
+
+                <h4>@($"{shortMonth} {stat.Year}")</h4>
+            }
+
+                @functions {
+                    string RoundStat(string input)
+                    {
+                        if (decimal.TryParse(input, out var number))
+                        {
+                            return Math.Round(number).ToString("0");
+                        }
+                        return input;
+                    }
+                }
+
+
+                <div class="stat-data">
+
+                    @if (!string.IsNullOrEmpty(stat.AmountRequest))
+                    {
+                        <p><strong>Requests:</strong> <span>@stat.AmountRequest</span></p>
+                    }
+                    @if (!string.IsNullOrEmpty(stat.AvgOffer))
+                    {
+                        <p><strong>Average Generated Offer:</strong> <span>@RoundStat(stat.AvgOffer) (SEK)</span></p>
+                    }
+                    @if (!string.IsNullOrEmpty(stat.MaxOffer))
+                    {
+                        <p><strong>Max Generated Offer:</strong> <span>@RoundStat(stat.MaxOffer) (SEK)</span></p>
+                    }
+                    @if (!string.IsNullOrEmpty(stat.LowOffer))
+                    {
+                        <p><strong>Lowest Generated Offer:</strong> <span>@RoundStat(stat.LowOffer) (SEK)</span></p>
+                    }
+                    @if (!string.IsNullOrEmpty(stat.ResponseAvgOffer))
+                    {
+                        <p><strong>Response (avg.) Offer:</strong> <span>@RoundStat(stat.ResponseAvgOffer) (SEK)</span></p>
+                    }
+                    @if (!string.IsNullOrEmpty(stat.ResponseMaxOffer))
+                    {
+                        <p><strong>Response (avg.) Max Offer:</strong> <span>@RoundStat(stat.ResponseMaxOffer) (SEK)</span></p>
+                    }
+                    @if (!string.IsNullOrEmpty(stat.ResponseLowOFfer))
+                    {
+                        <p><strong>Response (avg.) Lowest Offer:</strong> <span>@RoundStat(stat.ResponseLowOFfer) (SEK)</span></p>
+                    }
+                    @if (!string.IsNullOrEmpty(stat.AvgMileage))
+                    {
+                        <p><strong>Average Mileage:</strong> <span>@stat.AvgMileage</span></p>
+                    }
+                    @if (!string.IsNullOrEmpty(stat.Rejected))
+                    {
+                        <p><strong>Requests:</strong> <span>@stat.Rejected</span></p>
+                    }
+                    @if (!string.IsNullOrEmpty(stat.Accepted))
+                    {
+                        <p><strong>Requests:</strong> <span>@stat.Accepted</span></p>
+                    }
+
+                    @if (stat.PopCar != null && stat.PopCar.Length > 0)
+                    {
+                        <div class="popular-cars">
+                            <h5>Common Cars:</h5>
+                            <div>
+                                @foreach (var car in stat.PopCar)
+                                {
+                                    if (car is string[] pair && pair.Length == 2)
+                                    {
+                                        <p>
+                                            <strong>@pair[0]:</strong>
+                                            <span>@pair[1]</span>
+                                        </p>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <h3>
+            <i class="fa-solid fa-chart-bar"></i>
+
+            Statistics
+        </h3>
+    }
+</div>

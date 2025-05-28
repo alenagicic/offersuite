@@ -1,0 +1,257 @@
+@model OfferSuite.Model.PhonebookModel
+
+<div class="wrapper-phonebook">
+
+    <div class="wrapper-navbar-phonebook">
+@* 
+        @if(Model.IsCompany){
+            <div class="customer-btn phonebook-active">
+                Partners
+            </div>
+        }else {
+            <div class="customer-btn">
+                Partners
+            </div>
+        }
+        *@
+
+        @if(Model.IsUser){
+            <div class="customer-btn phonebook-active">
+                Search
+            </div>
+        }else {
+            <div class="customer-btn">
+                Search
+            </div>
+        }
+
+
+@* 
+        @if(Model.IsActive) {
+            <div class="customer-btn phonebook-active">
+                Active
+            </div>
+        }else {
+            <div class="customer-btn">
+                Active
+            </div>
+        } *@
+
+        @if(Model.IsSubmitForm){
+            <div class="customer-btn phonebook-active">
+                Add
+            </div>
+        }else {
+            <div class="customer-btn">
+                Add
+            </div>
+        }
+
+        @if(Model.IsCampaign){
+            <div class="customer-btn phonebook-active">
+                Campaign
+            </div>
+        }else {
+            <div class="customer-btn">
+                Campaign
+            </div>
+        }
+    
+    </div>
+
+    <div class="wrapper-data-phonebook">
+        <!-- Partial loaded here -->
+        <div class="wrapper-data-phonebook">
+
+            <div class="wrapper-customer">
+            
+                @if(Model.IsCompany){
+
+                    <div class="wrapper-navbar-customer">
+
+                        <select class="customer-search-input customer-search-input-sel">
+                            <option value="dealerships">Dealerships</option>
+                            <option value="mechanics">Mechanics</option>
+                            <option value="paintshops">Paintshops</option>
+                            <option value="car-parts">Car parts</option>
+                            <option value="tire-shops">Tire shops</option>
+                            <option value="tools">Tools</option>
+                            <option value="glass-repair">Glass repair</option>
+                            <option value="upholstery">Upholstery</option>
+                            <option value="vehicle-auction">Vehicle auction</option>
+                            <option value="detailing-services">Detailing services</option>
+                            <option value="towing-services">Towing services</option>
+                            <option value="body-shops">Body shops</option>
+                            <option value="wrap-vinyl">Wrap & Vinyl services</option>
+                            <option value="performance-tuning">Performance tuning shops</option>
+                            <option value="inspection-emissions">Inspection & emissions testing</option>
+                            <option value="vehicle-transport">Vehicle transport services</option>
+                            <option value="finance-insurance">Finance & insurance companies</option>
+                            <option value="window-tinting">Windshield & window tinting</option>
+                            <option value="custom-fabrication">Custom fabrication</option>
+                            <option value="custom">General</option>
+                        </select>
+
+                    </div>
+                    
+                }else if(Model.IsUser){
+
+                    <div class="wrapper-navbar-customer">
+
+                        <input 
+                            type="text" 
+                            class="customer-search-input" 
+                            placeholder="Search customer" 
+                        />
+                        
+                    </div>
+
+                    <div class="wrapper-customer-data">
+
+                    </div>
+                    
+                }
+
+                @if(Model.IsSubmitForm){
+
+                    <div class="wrapper-customer-data">
+
+                        <form class="customer-form">
+
+                            <div class="customer-form__group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="customer-form__group">
+                                <label for="phonenumber">Phone Number</label>
+                                <input type="tel" id="phonenumber" name="phonenumber" required>
+                            </div>
+
+                            <div class="customer-form__group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="customer-form__group">
+                                <label for="customertype">Type</label>
+                                <select id="customertype" name="customertype" required>
+                                <option value="customer">Customer</option>
+                                <option value="dealerships">Dealerships</option>
+                                <option value="mechanics">Mechanics</option>
+                                <option value="paintshops">Paintshops</option>
+                                <option value="car-parts">Car parts</option>
+                                <option value="tire-shops">Tire shops</option>
+                                <option value="tools">Tools</option>
+                                <option value="glass-repair">Glass repair</option>
+                                <option value="upholstery">Upholstery</option>
+                                <option value="vehicle-auction">Vehicle auction</option>
+                                <option value="detailing-services">Detailing services</option>
+                                <option value="towing-services">Towing services</option>
+                                <option value="body-shops">Body shops</option>
+                                <option value="wrap-vinyl">Wrap & Vinyl services</option>
+                                <option value="performance-tuning">Performance tuning shops</option>
+                                <option value="inspection-emissions">Inspection & emissions testing</option>
+                                <option value="vehicle-transport">Vehicle transport services</option>
+                                <option value="finance-insurance">Finance & insurance companies</option>
+                                <option value="window-tinting">Windshield & window tinting</option>
+                                <option value="custom-fabrication">Custom fabrication</option>
+                                <option value="custom">General</option>
+                                </select>
+                            </div>
+
+                            <div class="customer-form__group">
+                                <div class="toggle-container">
+                                    <label class="toggle-label" for="myToggle">Active Lead</label>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="myToggle" />
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="customer-form__group">
+                                <div class="toggle-container">
+                                    <label class="toggle-label" for="myToggle">High Priority</label>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="myToggle" />
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                            </div>
+                          
+                            <label for="description">Description</label>
+                            <textarea id="description" name="description"></textarea>
+                    
+
+                            <div class="customer-form-settings-wrapper">
+                                <button type="submit" class="btn steelblue">Save</button>
+
+                                <p class="customer-entry-datetime">
+                                    <i class="fa-regular fa-clock"></i>
+                                </p>
+                            </div>
+
+                        </form>
+                    </div>
+
+                }
+              
+                @if(Model.IsCampaign){
+                    <div class="customer-campaign">
+
+                        <div class="wrapper-navbar-customer">
+               
+                            <div class="customer-navbar-campaign">
+                            
+                                <div class="customer-navbar-btn">
+                                    SMS Campaign
+                                </div>
+
+                                <div class="customer-navbar-btn">
+                                    Email Campaign
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="customer-email-editor">
+                            <div class="customer-email-subject">
+                                <input placeholder="Subject">
+                            </div>
+                            
+                            <div class="wrapper-text-editor">
+
+                            </div>
+
+                            <div class="btn-editor-submit">
+                                Create
+                            </div>
+                        </div>
+
+                        <div class="customer-sms-editor">
+                            <div class="wrapper-text-editor">
+
+                            </div>
+
+                            <div class="btn-editor-submit">
+                                Create
+                            </div>
+                        </div>
+
+                    </div>
+                }
+
+                @if(Model.IsDefault){
+
+                           
+                }
+            
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

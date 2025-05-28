@@ -1,0 +1,387 @@
+$accent: steelblue;
+$overlay-bg: rgba(0, 0, 0, 0.5);
+
+
+// For all
+.popup-overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Black with 70% opacity */
+    width: 100%;
+    height: 100vh;
+    animation: fadeIn 0.4s ease-in-out;
+    position: fixed !important;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    .popup-container {
+      background-color: #f5f5f5;
+      width: 28rem; /* Slightly increased width */
+      height: 32rem; /* Slightly increased height */
+      position: absolute !important;
+      top: 10%; /* Space from the top of the viewport */
+      left: 50%;
+      transform: translateX(-50%);
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start; /* Align content from the top */
+      padding: 2rem; /* Increased padding around the container */
+      row-gap: 1rem;
+      border-radius: 0.4rem; /* Rounded corners */
+      box-sizing: border-box;
+      overflow: auto; /* Enable scrolling if content overflows */
+      max-height: 80vh; /* Set max height to avoid overflowing past the bottom of the viewport */
+  
+      input,
+      textarea,
+      .data-buttonsubmit {
+        width: 100%;
+        padding: 1rem;
+        box-sizing: border-box;
+        margin: 0;
+      }
+  
+      /* Make sure the textarea height is enforced */
+      textarea {
+        padding: unset!important;
+        padding-left: 0.5rem!important;
+        padding-top: 0.2rem!important;
+        padding-bottom: 0.2rem!important;
+        min-height: 8rem !important; /* Explicitly setting height to 8rem */
+        line-height: 1.5;
+      }
+  
+      .data-vehicledata {
+        height: 4rem !important;
+        width: 100% !important;
+        overflow: auto;
+        border: 1px solid #aaa;
+        padding-left: 1rem;
+        padding-top: 1rem;
+        box-sizing: border-box;
+      }
+  
+      .data-buttonsubmit {
+        background-color: #4682B4;
+        opacity: 0.9;
+        border: 1px solid transparent;
+        color: whitesmoke;
+        text-decoration: none;
+        font-size: 1rem;
+  
+        &:hover {
+          cursor: pointer;
+          border: 1px solid #4682B4;
+          background-color: transparent;
+          color: #4682B4;
+        }
+      }  
+    }
+
+    .popup-success {
+      background-color: #f5f5f5;
+      color: #4682B4;
+      display: flex;
+      justify-content: center;
+      align-items: center;   
+      height: 5rem;
+      width: 5rem;
+      border-radius: 50%;
+      padding: 4rem;
+      opacity: 0;
+      animation: fadeRotateIn 0.4s ease forwards;   
+  
+      .popup-success-icon{
+        animation: zoom 0s ease-out forwards;
+        font-size: 6rem;
+        transform-origin: center center;
+      }
+  
+    }
+
+    .popup-confirm-areyousure{
+      background-color: #f5f5f5;
+      color: #4682B4;
+      display: flex;
+      align-items: center;   
+      flex-wrap: wrap;
+      border-radius: 0.2rem;
+      padding: 2rem;
+      row-gap: 1rem;
+      column-gap: 0.5rem;
+      width: 18rem;
+      animation: popNoticeIn 0.4s ease-out forwards;
+
+      .popup-confirm-sure{
+        font-size: 1.1rem;
+        font-style: normal;
+        color: #333;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        column-gap: 2rem;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 0.8rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        text-align: center;
+
+        i{
+          min-height: 2rem;
+          max-width: 2rem;
+          max-height: 2rem;
+          min-width: 2rem;
+          border-radius: 50%;
+          display: flex;
+          font-size: 1.2rem;
+          align-items: center;
+          justify-content: center;
+          color: #e53956dc;
+          animation: zoom 0.2s ease-out forwards;
+          border: 2px solid #e53956dc;
+        }
+      }
+
+      button{
+        background-color: #4682B4;
+        border: 1px solid #4682B4;
+        color: white;
+        height: 2.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0.2rem;
+        font-size: 1rem;
+        font-family: inherit;
+        width: 48%;
+      }
+
+      button:hover{
+        transition-duration: 0.2s;
+        background-color: darken($color: #4682B4, $amount: 10);
+        color: white;
+        border: 1px solid darken($color: #4682B4, $amount: 10);
+        cursor: pointer;
+      }
+
+      .cancel-btn-usure{
+        background-color: transparent;
+        border: 1px solid #5555557a;
+        color: #555;
+      }
+
+      .cancel-btn-usure:hover{
+        transition-duration: 0.2s;
+        background-color: darken($color: #f5f5f5, $amount: 10);
+        border: 1px solid #555;
+        color: #333;
+        cursor: pointer;
+      }
+
+    }
+  
+
+}
+
+// Popup for campaign
+.popup-confirmation-campaign{
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  width: 19rem;
+  padding: 3rem;
+  padding-left: 3.5rem;
+  padding-right: 3.5rem;
+  border-radius: 0.2rem;
+  row-gap: 0.4rem;
+  position: relative;
+  justify-content: center;
+
+  *{
+    margin: 0px;
+    padding: 0px;
+  }
+
+  h2 {
+    margin: 0px!important;
+    padding: 0px!important;
+    margin-top: 0px!important;
+    color: #333;
+  }
+  
+  form {
+    margin: 0px;
+    padding: 0px;
+    margin-top: 1rem!important;
+    display: flex;
+    flex-direction: column;
+
+    h4{
+      margin: 0px;
+      padding: 0px;
+      color: inherit;
+      font-size: 1.1rem;
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+  
+    div {
+      margin-bottom: 0.5rem;
+      width: 8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  
+      label {
+        margin-right: 0.5rem;
+        font-weight: bold;
+      }
+  
+      input[type="radio"] {
+        margin-left: 0.25rem;
+      }
+    }
+  }
+  
+  p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  
+    &:last-of-type {
+      font-style: italic;
+      color: #777;
+      font-size: 0.9rem;
+      display: none;
+    }
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+
+// Used for func() -> createpopup()
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $overlay-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  color: #333;
+  transition: opacity 0.3s ease;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .popup {
+    background-color: #f5f5f5;
+    color: #4682B4;
+    display: flex;
+    align-items: center;   
+    flex-wrap: wrap;
+    border-radius: 0.2rem;
+    padding: 2rem;
+    column-gap: 0.5rem;
+    width: 18rem;
+    animation: popNoticeIn 0.4s ease-out forwards;
+
+    label{
+      margin-right: auto;
+      color: #4682B4;
+      font-size: 0.8rem;
+      text-transform: capitalize;
+      margin-bottom: 0.2rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.2rem;
+      box-sizing: border-box;
+      height: 2.5rem;
+      background-color: #f5f5f5;
+      font-size: 1rem;
+      text-align: right;
+
+      &:focus {
+        outline: 1px solid transparent;
+        border: 1px solid #4682B4;
+      }
+
+      &::placeholder{
+        text-align: left;
+      }
+    }
+
+    input::-webkit-inner-spin-button,
+    input::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    button {
+      background-color: #4682B4;
+      border: 1px solid #4682B4;
+      color: white;
+      height: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.2rem;
+      font-size: 1rem;
+      font-family: inherit;
+      width: 48.5%;
+
+      &:hover {
+        background-color: darken($color: #4682B4, $amount: 10);
+        transition-duration: 0.2s;
+        cursor: pointer;
+      }
+    }
+
+    .decline-button-man-offer{
+      background-color: transparent;
+      border: 1px solid #5555557a;
+      color: #555;
+    }
+
+    .decline-button-man-offer:hover{
+      transition-duration: 0.2s;
+      background-color: darken($color: #f5f5f5, $amount: 10);
+      border: 1px solid #555;
+      color: #333;
+      cursor: pointer;
+    }
+  }
+}
+
